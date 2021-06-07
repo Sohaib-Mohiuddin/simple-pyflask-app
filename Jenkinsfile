@@ -15,7 +15,7 @@ pipeline {
                 checkout scm
             }
         }
-        stage("Build Image: ${IMAGE_NAME}:${VERSION}") {
+        stage("Build Image") {
             steps {
                 echo 'Building Image'
                 script {
@@ -24,7 +24,7 @@ pipeline {
                 echo 'Building Image - Complete'
             }
         }
-        stage("Push Image: ${DOCKERHUB_REPO}/${IMAGE_NAME}:${VERSION}") {
+        stage("Push Image") {
             steps {
                 echo 'Pushing Image'
                 script {
