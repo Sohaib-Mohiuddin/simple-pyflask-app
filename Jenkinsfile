@@ -2,20 +2,15 @@ def docker_build_push
 
 pipeline {
     environment {
-        DOCKERHUB_REPO = 'sohaibm'
+        DOCKERHUB_REPO = 'sohaibm' // Change if pushing to different Repository
         IMAGE_NAME = 'simple-pyflask-app'
-        VERSION = '1.0'
+        VERSION = '1.0' // Increment as such: Major_Version:Minor_Version
     }
     agent any
     stages {
-        // stage('Clone Repository') {
-        //     steps {
-        //         // clone git repo into workspace
-        //         echo 'Cloning Repository'
-        //         checkout scm
-        //     }
-        // }
-        stage("Build Image") {
+        // stage('Clone Repository') not needed anymore. Jenkins automatically does 'checkout scm'
+        
+        stage('Build Image') {
             steps {
                 echo 'Building Image'
                 script {
@@ -24,7 +19,7 @@ pipeline {
                 echo 'Building Image - Complete'
             }
         }
-        stage("Push Image") {
+        stage('Push Image') {
             steps {
                 echo 'Pushing Image'
                 script {
@@ -35,7 +30,7 @@ pipeline {
                 echo 'Pushing Image - Complete'
             }
         }
-        stage("Prune Dangling Container/Image") {
+        stage('Prune Dangling Container/Image') {
             steps {
                 echo 'Pruning Containers'
                 sh "docker container prune -f"
