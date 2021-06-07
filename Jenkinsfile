@@ -32,6 +32,7 @@ pipeline {
                         docker_build_push.push()
                     }
                 }
+                echo 'Pushing Image - Complete'
             }
         }
         stage("Prune Dangling Container/Image") {
@@ -40,7 +41,7 @@ pipeline {
                 sh "docker container prune -f"
                 echo 'Pruning Images'
                 sh "docker image prune -f"
-                echo 'Pruning Complete'
+                echo 'Pruning - Complete'
             }
         }
     }
