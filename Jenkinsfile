@@ -8,13 +8,13 @@ pipeline {
     }
     agent any
     stages {
-        stage('Clone Repository') {
-            steps {
-                // clone git repo into workspace
-                echo 'Cloning Repository'
-                checkout scm
-            }
-        }
+        // stage('Clone Repository') {
+        //     steps {
+        //         // clone git repo into workspace
+        //         echo 'Cloning Repository'
+        //         checkout scm
+        //     }
+        // }
         stage("Build Image") {
             steps {
                 echo 'Building Image'
