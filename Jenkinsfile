@@ -4,7 +4,7 @@ pipeline {
     environment {
         DOCKERHUB_REPO = 'sohaibm' // Change if pushing to different Repository
         IMAGE_NAME = 'simple-pyflask-app'
-        VERSION = '1.0' // Increment as such: Major_Version:Minor_Version
+        VERSION = '1.1' // Increment as such: Major_Version:Minor_Version
     }
     agent any
     stages {
